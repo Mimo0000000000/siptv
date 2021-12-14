@@ -1,0 +1,17 @@
+# doctype
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/<\!DOCTYPE\s\+html[^>]*>/<\!DOCTYPE html>/gi" {} \;
+
+# meta charset
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/<meta[^>]*content=[\"'][^\"']*utf-8[\"'][^>]*>/<meta charset=\"utf-8\">/gi" {} \;
+
+# script text/javascript
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/\(<script[^>]*\)\(\stype=[\"']text\/javascript[\"']\)\(\s\?[^>]*>\)/\1\3/gi" {} \;
+
+# style text/css
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/\(<style[^>]*\)\(\stype=[\"']text\/css[\"']\)\(\s\?[^>]*>\)/\1\3/gi" {} \;
+
+# html xmlns
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/\(<html[^>]*\)\(\sxmlns=[\"'][^\"']*[\"']\)\(\s\?[^>]*>\)/\1\3/gi" {} \;
+
+# html xml:lang
+find . -regex ".*\.\(html\|py\)$" -type f -exec sed -i "s/\(<html[^>]*\)\(\sxml:lang=[\"'][^\"']*[\"']\)\(\s\?[^>]*>\)/\1\3/gi" {} \;
